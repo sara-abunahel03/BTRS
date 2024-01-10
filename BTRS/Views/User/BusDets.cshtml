@@ -1,0 +1,114 @@
+﻿@model IEnumerable<BTRS.Models.Bus>
+
+@{
+    ViewData["Title"] = "BusDets";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        background-color: #f0f5fe;
+        color: #37474f;
+    }
+
+    h1 {
+        color: #1565c0; /* Dark blue title */
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .container {
+        margin-top: 20px;
+    }
+    .list-group{
+        background-color: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        margin-top: 50px;
+    }
+    .list-group-item {
+
+        color: #333;
+        margin-bottom: 15px; /* Increased space between list items */
+        padding: 15px; /* Add padding for better visibility */
+        border-radius: 5px; /* Rounded corners */
+        text-align: center; /* Center text within the list item */
+    }
+
+        .list-group-item:hover {
+            background-color: #90a4ae; /* Darker blue-gray on hover */
+            color: #fff; /* White text on hover */
+        }
+
+    .attribute-label {
+        color: #2196f3; /* Blue label color */
+        margin-right: 5px; /* Add space between label and value */
+    }
+
+    .attribute-value{
+        color: #dc3545;
+    }
+
+    .btn btn-primary{
+        color: #1565c0;
+        margin-top:30px;
+    }
+
+
+    </style>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CaptinName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Num_of_S)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CaptinName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Num_of_S)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+@* <div class="container">
+    <h1>Bus Details</h1>
+
+    <ul class="list-group">
+        @foreach (var item in Model)
+        {
+            <li class="list-group-item">
+
+                <span class="attribute-label captain-name">Captain Name:</span>
+                <span class="attribute-value">@Html.DisplayFor(modelItem => item.CaptinName)</span> 
+
+            </li>
+            <li class="list-group-item">
+                <span class="attribute-label">Number of Seats:</span>
+                <span class="attribute-value">@Html.DisplayFor(modelItem => item.Num_of_S)</span>
+            </li>
+        }
+    </ul>
+</div> *@
+<a asp-action="TripList" class="btn btn-primary ">Back to Trip List</a>

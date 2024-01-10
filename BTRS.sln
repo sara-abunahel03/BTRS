@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BTRS", "BTRS\BTRS.csproj", "{C8C0439B-8F72-4057-BE56-F6333CD7C010}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8C0439B-8F72-4057-BE56-F6333CD7C010}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8C0439B-8F72-4057-BE56-F6333CD7C010}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8C0439B-8F72-4057-BE56-F6333CD7C010}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8C0439B-8F72-4057-BE56-F6333CD7C010}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7D628814-BED3-4D6D-8215-51C91848DA1A}
+	EndGlobalSection
+EndGlobal

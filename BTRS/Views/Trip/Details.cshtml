@@ -1,0 +1,45 @@
+﻿@model BTRS.Models.Trip
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    body {
+        background-color: #f0f8ff; /* Alice Blue background */
+        color: #001f3f; /* Dark Blue text */
+    }
+
+    h1 {
+        color: #1565c0;
+        text-align: center;
+        margin-bottom: 30px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+</style>
+
+<div class="text-center my-4">
+    <h1 class="display-4">Trip Details</h1>
+</div>
+
+<div class="border p-4 bg-light mx-auto" style="max-width: 600px;">
+
+    <dl class="row">
+        <dt class="col-sm-4 text-primary">Bus Number:</dt>
+        <dd class="col-sm-8">@Html.DisplayFor(model => model.BusNum)</dd>
+
+        <dt class="col-sm-4 text-primary">Destination:</dt>
+        <dd class="col-sm-8">@Html.DisplayFor(model => model.dest)</dd>
+
+        <dt class="col-sm-4 text-primary">Departure Date:</dt>
+        <dd class="col-sm-8">@Html.DisplayFor(model => model.StartD)</dd>
+      
+        <dt class="col-sm-4 text-primary">Arrival Date:</dt>
+        <dd class="col-sm-8">@Html.DisplayFor(model => model.EndD)</dd>
+    </dl>
+</div>
+
+<div class="text-center my-4">
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a> |
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>

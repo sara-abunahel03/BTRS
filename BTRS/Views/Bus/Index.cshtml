@@ -1,0 +1,112 @@
+﻿@model IEnumerable<BTRS.Models.Bus>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    body
+
+    {
+        background-color: #f0f8ff; /* Alice Blue background */
+        color: #001f3f; /* Dark Blue text */
+    }
+
+    h1 {
+        color: #1565c0; /* Dark blue title color */
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    a {
+        color: #1565c0; /* Dark blue link color */
+    }
+
+    table {
+        width: 100%;
+        background-color: #e0f2f1; /* Light green table background */
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    th {
+        background-color: #1565c0; /* Dark blue header background */
+        color: #ffffff; /* Header text color */
+    }
+
+    .table td,
+    .table th {
+        text-align: center;
+        padding: 15px;
+        color: #4caf50;
+    }
+
+    .btn {
+        border-radius: 5px;
+    }
+
+    .btn-primary {
+        background-color: #1565c0; /* Dark blue button background */
+        border-color: #1565c0; /* Dark blue button border color */
+        color: #ffffff; /* Button text color */
+    }
+
+    .btn-info {
+        background-color: #81d4fa; /* Light blue button background */
+        border-color: #81d4fa; /* Light blue button border color */
+        color: #004d40; /* Dark green button text color */
+    }
+
+    .btn-danger {
+        background-color: #ef5350; /* Red button background */
+        border-color: #ef5350; /* Red button border color */
+        color: #ffffff; /* Button text color */
+    }
+
+    .btn-success {
+        background-color: #4caf50; /* Green button background */
+        border-color: #4caf50; /* Green button border color */
+        color: #ffffff; /* Button text color */
+    }
+    
+</style>
+
+<h1>Bus List</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.CaptinName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Num_of_S)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.CaptinName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Num_of_S)
+            </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class=" btn btn-primary">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"
+                               onclick="return confirm('Are you sure you want to delete this item">Delete</a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>
+<div class="a1">
+    <a asp-action="Create" class=" btn btn-primary">Create New</a>
+    <a asp-action="Index" asp-controller="Trip" class=" btn btn-primary">Go back to Trip List</a>
+</div>

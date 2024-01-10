@@ -1,0 +1,118 @@
+﻿@model IEnumerable<BTRS.Models.Trip>
+
+@{
+    ViewData["Title"] = "Book List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        background-color: #f0f5fe;
+        color: #37474f;
+    }
+
+    .container {
+        background-color: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        margin-top: 50px;
+    }
+
+    h1 {
+        color: #1565c0;
+        text-align: center;
+        margin-bottom: 30px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    table {
+        margin-top: 20px;
+        width: 100%;
+        border-collapse: collapse;
+        text-align: center;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #007bff; /* Primary Blue border */
+    }
+
+    th {
+        background-color: #87cefa; /* Light Sky Blue header background */
+        color: #001f3f; /* Dark Blue text for header */
+    }
+
+    tr:hover {
+        background-color: #add8e6; /* Light Blue on hover */
+    }
+
+    a {
+        color: #007bff; /* Primary Blue link color */
+        text-decoration: none;
+    }
+
+        a:hover {
+            color: #0056b3; /* Darker Blue on hover */
+        }
+
+    .btn-primary {
+        background-color: #1565c0; /* Primary Blue button background */
+        color: #fff; /* White text for button */
+       margin-top:20px;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darker Blue on button hover */
+            border-color: #0056b3;
+        }
+
+    .btn-danger {
+        background-color: #dc3545; /* Red button background */
+        border-color: #dc3545;
+        color: #fff; /* White text for button */
+    }
+
+        .btn-danger:hover {
+            background-color: #bd2130; /* Darker Red on button hover */
+            border-color: #bd2130;
+        }
+
+    .table thead th {
+        background-color: #1565c0;
+        color: #ffffff;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+</style>
+
+<div class="container">
+<h1>My Bookings</h1>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" class="text-center">Bus Number</th>
+            <th scope="col" class="text-center">Destination</th>
+            <th scope="col" class="text-center">Start Date</th>
+            <th scope="col" class="text-center">End Date</th>
+            <th scope="col" class="text-center">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                    <td class="text-center">@Html.DisplayFor(modelItem => item.BusNum)</td>
+                    <td class="text-center">@Html.DisplayFor(modelItem => item.dest)</td>
+                    <td class="text-center">@Html.DisplayFor(modelItem => item.StartD)</td>
+                    <td class="text-center">@Html.DisplayFor(modelItem => item.EndD)</td>
+                    <td class="text-center"><a asp-action="DeleteBook" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+</div>
+
+<a asp-action="TripList" class="btn btn-primary ">Back to Trip List</a>

@@ -1,0 +1,76 @@
+﻿@model BTRS.Models.Bus
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+}
+<style>
+
+    body {
+        background-color: #f0f8ff; /* Alice Blue background */
+        color: #001f3f; /* Dark Blue text */
+    }
+
+    h1 {
+        color: #1565c0; /* Dark blue title color */
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .btn-primary {
+        background-color: #4caf50; /* Green button background */
+        border-color: #4caf50; /* Green button border color */
+        color: #ffffff; /* Button text color */
+    }
+
+    .btn-secondary {
+        background-color: #1565c0; /* Dark blue button background */
+        border-color: #1565c0; /* Dark blue button border color */
+        color: #ffffff; /* Button text color */
+    }
+
+</style>
+<h1 class="my-4 text-center text-primary">Create Bus</h1>
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <form asp-action="Create" class="border p-4 bg-light">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <div class="form-group mb-3">
+                <label asp-for="CaptinName" class="control-label text-primary">Captain Name</label>
+                <input asp-for="CaptinName" class="form-control" />
+                <span asp-validation-for="CaptinName" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Num_of_S" class="control-label text-primary">Number of Seats</label>
+                <input asp-for="Num_of_S" class="form-control" />
+                <span asp-validation-for="Num_of_S" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label class="control-label text-primary">Bus Number</label>
+                <select name="tripID" id="tripID" class="form-control">
+                    @for (int i = 0; i < ViewBag.Trip.Count; i++)
+                    {
+                        <option value="@ViewBag.Trip[i].Id">@ViewBag.Trip[i].BusNum</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary">Create</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="text-center mt-3">
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,117 @@
+﻿@model IEnumerable<BTRS.Models.Trip>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        background-color: #f0f5fe;
+        color: #37474f;
+    }
+
+    .container {
+        text-align: center;
+        margin-top: 5%;
+    }
+
+    .btn-group {
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 100%;
+        background-color: #d1e9dd; /* Light green background */
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .thead-dark th {
+        background-color: #1565c0; /* Dark blue header background */
+        color: #ffffff;
+    }
+
+    .table td, .table th {
+        text-align: center;
+        padding: 15px;
+    }
+
+    .btn {
+        border-radius: 5px;
+    }
+
+    .btn-primary {
+        background-color: #1565c0; /* Updated color */
+        border-color: #1565c0; /* Updated color */
+        color: #ffffff;
+    }
+
+        .btn-primary:hover {
+            background-color: #004080; /* Darker shade on hover */
+            border-color: #004080; /* Darker shade on hover */
+        }
+
+    .btn-info {
+        background-color: #4caf50; /* Green button */
+        border-color: #4caf50;
+        color: #ffffff;
+    }
+
+    .btn-danger {
+        background-color: #dc3545; /* Red button */
+        border-color: #dc3545;
+        color: #ffffff;
+    }
+
+    .btn-success {
+        background-color: #28a745; /* Green button */
+        border-color: #28a745;
+        color: #ffffff;
+    }
+</style>
+
+<div class="container">
+    <h1 class="text-center text-primary mb-4">Available Trips</h1>
+
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <div class="btn-group">
+                <a asp-action="Booklist" asp-controller="User" class="btn btn-primary">My bookings</a>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Bus Number</th>
+                <th>Destination</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.BusNum)</td>
+                    <td>@Html.DisplayFor(modelItem => item.dest)</td>
+                    <td>@Html.DisplayFor(modelItem => item.StartD)</td>
+                    <td>@Html.DisplayFor(modelItem => item.EndD)</td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a asp-action="Book" asp-route-id="@item.Id" class="btn btn-primary">book</a>
+                            <a asp-action="BusDets" asp-route-id="@item.Id" class="btn btn-info">bus details</a> 
+                    
+
+    </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @TempData["Message"]
+</div>

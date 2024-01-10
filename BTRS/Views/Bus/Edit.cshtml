@@ -1,0 +1,54 @@
+﻿@*  @model BTRS.Models.Bus
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card bg-light text-dark">
+                <div class="card-body">
+                    <h1 class="text-center mb-4">Edit Bus</h1>
+
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+
+                        <div class="form-group">
+                            <label asp-for="CaptinName" class="control-label text-black font-weight-bold">Captain Name:</label>
+                            <input asp-for="CaptinName" class="form-control" />
+                            <span asp-validation-for="CaptinName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Num_of_S" class="control-label text-black font-weight-bold">Number of Seats:</label>
+                            <input asp-for="Num_of_S" class="form-control" />
+                            <span asp-validation-for="Num_of_S" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="TripID" class="control-label text-black font-weight-bold">TripID:</label>
+                            <select asp-for="TripID" asp-items="@(new SelectList(ViewBag.Trip, "Id", "Dest"))" class="form-control">
+                                <option value="">Select Trip</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary mt-2">Save</button>
+                            <a asp-action="Index" class="btn btn-secondary mt-2 ml-2">Back to List</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+  *@

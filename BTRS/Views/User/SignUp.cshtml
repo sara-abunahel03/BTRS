@@ -1,0 +1,117 @@
+﻿@model BTRS.Models.Passenger;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Sign Up Form</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0f5fe;
+            color: #495057;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: #ffffff;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+                border-color: #0056b3;
+            }
+
+        h2 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <form method="post" class="mt-4">
+        <div class="container">
+            <h2>Sign Up</h2>
+
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <input type="text" asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="Username">Username</label>
+                <input type="text" asp-for="Username" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" asp-for="password" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" asp-for="email" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="form-check">
+                    <input type="radio" asp-for="gender" value="Male" class="form-check-input" id="maleRadio">
+                    <label class="form-check-label" for="maleRadio">Male</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" asp-for="gender" value="Female" class="form-check-input" id="femaleRadio">
+                    <label class="form-check-label" for="femaleRadio">Female</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="number" asp-for="phoneNumber" class="form-control" />
+               
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Add Bootstrap JS and Popper.js scripts (required for Bootstrap features) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+@if (TempData["Msg"] != null)
+{
+    <div class="form-group row">
+        <div class="col-md-8 offset-md-3">
+            <div style="color:red">
+                @TempData["Msg"]
+            </div>
+        </div>
+    </div>
+}

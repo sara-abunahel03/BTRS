@@ -1,0 +1,65 @@
+﻿@model IEnumerable<BTRS.Models.Bus>
+
+@{
+    ViewData["Title"] = "BusDets";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        background-color: #f0f8ff; /* Alice Blue background */
+        color: #001f3f; /* Dark Blue text */
+    }
+
+    h1 {
+        color: #1565c0; /* Primary Blue title */
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    table {
+        margin-top: 20px;
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: center;
+        border-bottom: 1px solid #007bff; /* Primary Blue border */
+    }
+
+    th {
+        background-color: #87cefa; /* Light Sky Blue header background */
+        color: #001f3f; /* Dark Blue text for header */
+    }
+
+    tr:hover {
+        background-color: #add8e6; /* Light Blue on hover */
+    }
+</style>
+
+<h1>Bus Details</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-center">@Html.DisplayNameFor(model => model.Id)</th>
+            <th class="text-center">@Html.DisplayNameFor(model => model.CaptinName)</th>
+            <th class="text-center">@Html.DisplayNameFor(model => model.Num_of_S)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center">@Html.DisplayFor(modelItem => item.Id)</td>
+                <td class="text-center">@Html.DisplayFor(modelItem => item.CaptinName)</td>
+                <td class="text-center">@Html.DisplayFor(modelItem => item.Num_of_S)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Index" asp-controller="Trip" class=" btn btn-primary">Go back to Trip List</a>
